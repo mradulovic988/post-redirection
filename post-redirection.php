@@ -29,6 +29,7 @@ if ( ! defined('ABSPATH' ) ) {
 if ( !class_exists( 'Post_Redirection' ) ) {
     
     class Post_Redirection {
+
         public function __construct() {
             if ( ! defined( 'PR_PLUGIN_PATH' ) ) {
                 define( 'PR_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
