@@ -27,6 +27,7 @@ if ( ! defined('ABSPATH' ) ) {
 }
 
 if ( !class_exists( 'Post_Redirection' ) ) {
+    
     class Post_Redirection {
         public function __construct() {
             if ( ! defined( 'PR_PLUGIN_PATH' ) ) {
