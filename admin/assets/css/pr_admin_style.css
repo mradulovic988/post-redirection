@@ -56,3 +56,7 @@ input:checked + .pr-slider:before {
 .pr-slider.pr-round:before {
     border-radius: 50%
 }
+
+.pr-end-page {
+    width: 300px;
+}

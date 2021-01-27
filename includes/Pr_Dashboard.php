@@ -51,29 +51,16 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
         }
 
         public function pr_settings_section_callback() {
-            // CHANGE DESCRIPTION LATER
             _e( 'Set your General settings.', 'post_redirection' );
         }
 
         protected function pr_settings_fields( string $type, string $id, string $class, string $name, string $value, $placeholder = '', $description = '', $min = '', $max = '', $required = '' ) {
             switch ( $type ) {
-                case 'text':
-                    echo '<input type="text" id="' . $id . '" class="' . $class . '" name="pr_settings_fields[' . $name . ']" value="' . $value . '" placeholder="' . __( $placeholder, 'post_redirection' ) . '" ' . $required . '><small class="pr-field-desc">' . __( $description, 'post_redirection' ) . '</small>';
-                    break;
-                case 'number':
-                    echo '<input type="number" id="' . $id . '" class="' . $class . '" name="pr_settings_fields[' . $name . ']" value="' . $value . '" placeholder="' . __( $placeholder, 'post_redirection' ) . '" min="' . $min . '" max="' . $max . '"><small class="pr-field-desc">' . __( $description, 'post_redirection' ) . '</small>';
-                    break;
                 case 'checkbox':
                     echo '<label class="pr-switch" for="' . $id . '"><input type="checkbox" id="' . $id . '" class="' . $class . '" name="pr_settings_fields[' . $name . ']" value="1" ' . $value . '><span class="pr-slider pr-round"></span></label><small class="pr-field-desc">' . $description . '</small>';
                     break;
                 case 'url':
                     echo '<input type="url" id="' . $id . '" class="' . $class . '" name="pr_settings_fields[' . $name . ']" value="' . $value . '"placeholder="' . __( $placeholder, 'post_redirection' ) . '" ' . $required . '><small class="pr-field-desc">' . __( $description, 'post_redirection' ) . '</small>';
-                    break;
-                case 'color':
-                    echo '<input type="color" id="' . $id . '" class="' . $class . '" name="pr_settings_fields[' . $name . ']" value="' . $value . '">';
-                    break;
-                case 'textarea':
-                    echo '<textarea class="' . $class . '" name="pr_settings_fields[' . $name . ']" placeholder="' . __( $placeholder, 'post_redirection' ) . '" id="' . $id . '" rows="7" ' . $required . '>' . $value . '</textarea>';
                     break;
             }
         }
@@ -106,11 +93,19 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
                 $this,
                 'pr_section_id_enabled_disabled'
             ), 'pr_settings_section_tab', 'pr_section_id' );
+
+            add_settings_field( 'pr_section_id_end_page', __( 'End page redirection', 'post_redirection' ), array(
+                $this,
+                'pr_section_id_eng_page'
+            ), 'pr_settings_section_tab', 'pr_section_id' );
         }
 
-        // General page Settings API fields
         public function pr_section_id_enabled_disabled() {
             $this->pr_settings_fields( 'checkbox', 'pr-enabled-disabled', 'pr-switch-input', 'enabled_disabled', $this->pr_option_check_radio_btn( 'enabled_disabled' ) );
+        }
+
+        public function pr_section_id_eng_page() {
+            $this->pr_settings_fields( 'url', 'pr-end-page', 'pr-end-page', 'end_page', $this->pr_options_check( 'end_page' ), 'https://domain.com/end-page' );
         }
     }
 
