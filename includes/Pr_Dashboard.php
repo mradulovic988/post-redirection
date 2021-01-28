@@ -50,11 +50,13 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
             <?php
         }
 
+        // Description of admin page
         public function pr_settings_section_callback() {
             _e( 'Set your General settings.', 'post_redirection' );
         }
 
-        protected function pr_settings_fields( string $type, string $id, string $class, string $name, string $value, $placeholder = '', $description = '', $min = '', $max = '', $required = '' ) {
+        // Checking type of the fields
+        protected function pr_settings_fields( string $type, string $id, string $class, string $name, string $value, $placeholder = '', $description = '', $required = '' ) {
             switch ( $type ) {
                 case 'checkbox':
                     echo '<label class="pr-switch" for="' . $id . '"><input type="checkbox" id="' . $id . '" class="' . $class . '" name="pr_settings_fields[' . $name . ']" value="1" ' . $value . '><span class="pr-slider pr-round"></span></label><small class="pr-field-desc">' . $description . '</small>';
@@ -65,12 +67,14 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
             }
         }
 
+        // Checking option data for every button except the radio button
         public function pr_options_check( string $id ): string {
             $options = get_option( 'pr_settings_fields' );
 
             return ( ! empty( $options[ $id ] ) ? $options[ $id ] : '' );
         }
 
+        // Checking option data for every radio button
         public function pr_option_check_radio_btn( string $id ): string {
             $options = get_option( 'pr_settings_fields' );
 
@@ -88,17 +92,19 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
                 'pr_settings_section_callback'
             ), 'pr_settings_section_tab');
 
-            // General page fields
+            // Enabled / Disabled button
             add_settings_field( 'pr_section_id_enabled_disabled', __( 'Enable / Disable', 'post_redirection' ), array(
                 $this,
                 'pr_section_id_enabled_disabled'
             ), 'pr_settings_section_tab', 'pr_section_id' );
 
+            // End page field
             add_settings_field( 'pr_section_id_end_page', __( 'End page redirection', 'post_redirection' ), array(
                 $this,
                 'pr_section_id_eng_page'
             ), 'pr_settings_section_tab', 'pr_section_id' );
         }
+
 
         public function pr_section_id_enabled_disabled() {
             $this->pr_settings_fields( 'checkbox', 'pr-enabled-disabled', 'pr-switch-input', 'enabled_disabled', $this->pr_option_check_radio_btn( 'enabled_disabled' ) );

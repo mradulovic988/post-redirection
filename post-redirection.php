@@ -44,12 +44,12 @@ if ( !class_exists( 'Post_Redirection' ) ) {
                 include PR_PLUGIN_PATH . '/admin/Pr_Admin.php';
 
                 $this->pr_load_plugin_textdomain();
-
             } else {
                 include PR_PLUGIN_PATH . '/public/Pr_Public.php';
             }
         }
 
+        // Translation and Localization
         public function pr_load_plugin_textdomain() {
             load_plugin_textdomain(
                 'agy',
