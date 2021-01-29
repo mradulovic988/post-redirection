@@ -37,36 +37,36 @@ if (document.body.classList.contains('single-post')) {
      * @name {getLastPost} Getting the last post button
      * @type {Element}
      */
-    const getLastPost = document.querySelector('a._button._next._another_post');
+    const getLastPost = document.querySelector('._button._next._another_post');
 
     /**
      * @name {getDisabledLastPost} Getting the last post button on disabled arrow
      * @type {Element}
      */
-    const getDisabledLastPost = document.querySelector('span._button._next._disabled');
+    const getDisabledLastPost = document.querySelector('._button._next._disabled');
 
     /**
      * @name {getDisabledLastPost} Getting the last post button on disabled arrow
      * @type {Element}
      */
-    const getSingleLastPost = document.querySelector('a._button._next._another_post span._1');
+    const getSingleLastPost = document.querySelector('._button._next._another_post span._1');
 
     // Last post arrow without disabled attr
     if (getLastPost) {
-        document.querySelector('a._button._another_post span._1').textContent = 'Next';
+        document.querySelector('._button._another_post span._1').textContent = 'Next';
         clickRedirection(getLastPost);
     }
 
     // Last post arrow with disabled attr
     if (getDisabledLastPost) {
-        document.querySelector('span._button span._1').textContent = 'Next';
+        document.querySelector('._button span._1').textContent = 'Next';
         getDisabledLastPost.classList.remove('_disabled');
         clickRedirection(getDisabledLastPost);
     }
 
     // Proceed with the single last post
     if(getSingleLastPost) {
-        document.querySelector('a._button._next span._1').textContent = 'Next';
+        document.querySelector('._button._next span._1').textContent = 'Next';
         clickRedirection(getSingleLastPost);
     }
 }

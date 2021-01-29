@@ -13,7 +13,15 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
         public function __construct() {
             if ( is_admin() ) {
                 add_action( 'admin_menu', array( $this, 'pr_dashboard' ) );
+                add_action( 'admin_notices', array( $this, 'pr_show_error_notice' ) );
                 add_action( 'admin_init', array( $this, 'pr_register_settings' ) );
+            }
+        }
+
+        public function pr_show_error_notice() {
+            if ( isset( $_GET['settings-updated'] ) ) {
+                $message = __( 'You have successfully saved your settings.', 'pr' );
+                add_settings_error( 'pr_settings_fields', 'sucess', $message, 'success' );
             }
         }
 
@@ -33,6 +41,7 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
 
                     <?php
                     settings_errors( 'pr_settings_fields' );
+                    wp_nonce_field( 'pr_dashboard_save', 'pr_form_save_name' ); // CHECK THIS AT THE END
                     settings_fields( 'pr_settings_fields' );
                     do_settings_sections( 'pr_settings_section_tab' );
 
@@ -46,6 +55,13 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
                     ?>
 
                 </form>
+
+                <?php
+                if ( ! isset( $_POST['pr_form_save_name'] ) ||
+                    ! wp_verify_nonce( $_POST['pr_form_save_name'], 'pr_dashboard_save' ) ) {
+                    return;
+                }
+                ?>
             </div>
             <?php
         }
