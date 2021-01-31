@@ -14,9 +14,6 @@ if ( ! class_exists( 'Pr_Public' ) ) {
             if ( ! is_admin() ) {
                 $option_data = get_option( 'pr_settings_fields' ); // Get option data
 
-                // *** BUG -> Can't add/edit/update posts ***
-//                echo $this->pr_data_collection( 'end_page', 'pr_hide_end_page' ); // Sending data to front-end
-
                 // If enabled/disabled field is turned on enqueue the script
                 if ( $option_data[ 'enabled_disabled' ] == 1 ) {
                     add_action( 'wp_enqueue_scripts', array( $this, 'pr_enqueue_public_styles' ) );

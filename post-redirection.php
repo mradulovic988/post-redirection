@@ -43,22 +43,11 @@ if ( !class_exists( 'Post_Redirection' ) ) {
                 include PR_PLUGIN_PATH . '/includes/Pr_Dashboard.php';
                 include PR_PLUGIN_PATH . '/admin/Pr_Admin.php';
 
-                $this->pr_load_plugin_textdomain();
-
                 add_filter( 'plugin_action_links', array( $this, 'pr_settings_link' ), 10, 2 );
                 add_filter( 'plugin_row_meta', array( $this, 'pr_set_plugin_meta' ), 10, 2 );
             } else {
                 include PR_PLUGIN_PATH . '/public/Pr_Public.php';
             }
-        }
-
-        // Translation and Localization
-        public function pr_load_plugin_textdomain() {
-            load_plugin_textdomain(
-                'agy',
-                false,
-                PR_PLUGIN_BASENAME . dirname( __FILE__ ) . '/languages'
-            );
         }
 
         // Settings link for the plugin

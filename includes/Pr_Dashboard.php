@@ -18,9 +18,10 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
             }
         }
 
+        // Notice
         public function pr_show_error_notice() {
             if ( isset( $_GET['settings-updated'] ) ) {
-                $message = __( 'You have successfully saved your settings.', 'pr' );
+                $message = __( 'You have successfully saved your settings.', 'post_redirection' );
                 add_settings_error( 'pr_settings_fields', 'sucess', $message, 'success' );
             }
         }
