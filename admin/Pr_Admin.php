@@ -9,6 +9,18 @@
 */
 
 if ( ! class_exists( 'Pr_Admin' ) ) {
+
+    /**
+     * Class Pr_Admin
+     *
+     * Main triggering for the back-end
+     *
+     * @copyright  2021 M Lab Studio
+     * @license    http://www.zend.com/license/3_0.txt   PHP License 3.0
+     * @version    Release: 1.0.0
+     * @link       https://mlab-studio.com/
+     * @since      Class available since Release 1.0.0
+     */
     class Pr_Admin {
         public function __construct() {
             if ( is_admin() ) {

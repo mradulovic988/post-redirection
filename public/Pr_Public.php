@@ -9,6 +9,18 @@
  */
 
 if ( ! class_exists( 'Pr_Public' ) ) {
+
+    /**
+     * Class Pr_Public
+     *
+     * Main communication between front-end
+     *
+     * @copyright  2021 M Lab Studio
+     * @license    http://www.zend.com/license/3_0.txt   PHP License 3.0
+     * @version    Release: 1.0.0
+     * @link       https://mlab-studio.com/
+     * @since      Class available since Release 1.0.0
+     */
     class Pr_Public {
         public function __construct() {
             if ( ! is_admin() ) {
@@ -27,6 +39,11 @@ if ( ! class_exists( 'Pr_Public' ) ) {
             }
         }
 
+        /**
+         * Data sent on the front-end
+         *
+         * CHECK IF IT'S NECESSARY
+         */
         public function send_data() {
             $option_data = get_option( 'pr_settings_fields' ); // Get option data
             echo $this->pr_data_collection( 'end_page', 'pr_hide_end_page' );

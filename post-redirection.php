@@ -27,7 +27,18 @@ if ( ! defined('ABSPATH' ) ) {
 }
 
 if ( !class_exists( 'Post_Redirection' ) ) {
-    
+
+    /**
+     * Class Post_Redirection
+     *
+     * Main triggering for the plugin
+     *
+     * @copyright  2021 M Lab Studio
+     * @license    http://www.zend.com/license/3_0.txt   PHP License 3.0
+     * @version    Release: 1.0.0
+     * @link       https://mlab-studio.com/
+     * @since      Class available since Release 1.0.0
+     */
     class Post_Redirection {
 
         public function __construct() {
@@ -50,7 +61,13 @@ if ( !class_exists( 'Post_Redirection' ) ) {
             }
         }
 
-        // Settings link for the plugin
+        /**
+         * Return an array of links on the plugin installation page
+         *
+         * @param $links
+         * @param $file
+         * @return array
+         */
         public function pr_settings_link( $links, $file ): array {
             $plugin = plugin_basename( __FILE__ );
 
@@ -64,7 +81,14 @@ if ( !class_exists( 'Post_Redirection' ) ) {
             return $links;
         }
 
-        // Settings link for the plugin
+        /**
+         * Return an array of links on the plugin installation page
+         * for the manage option role
+         *
+         * @param $links
+         * @param $file
+         * @return array
+         */
         public function pr_set_plugin_meta( $links, $file ): array {
             $plugin = plugin_basename( __FILE__ );
 

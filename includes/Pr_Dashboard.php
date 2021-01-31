@@ -9,6 +9,18 @@
  */
 
 if ( ! class_exists( 'Pr_Dashboard' ) ) {
+
+    /**
+     * Class Pr_Dashboard
+     *
+     * Main communication between front-end and back-end
+     *
+     * @copyright  2021 M Lab Studio
+     * @license    http://www.zend.com/license/3_0.txt   PHP License 3.0
+     * @version    Release: 1.0.0
+     * @link       https://mlab-studio.com/
+     * @since      Class available since Release 1.0.0
+     */
     class Pr_Dashboard {
         public function __construct() {
             if ( is_admin() ) {
@@ -72,7 +84,18 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
             _e( 'Set your General settings.', 'post_redirection' );
         }
 
-        // Checking type of the fields
+        /**
+         * Checking type of the fields
+         *
+         * @param string $type
+         * @param string $id
+         * @param string $class
+         * @param string $name
+         * @param string $value
+         * @param string $placeholder
+         * @param string $description
+         * @param string $required
+         */
         protected function pr_settings_fields( string $type, string $id, string $class, string $name, string $value, $placeholder = '', $description = '', $required = '' ) {
             switch ( $type ) {
                 case 'checkbox':
@@ -84,14 +107,24 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
             }
         }
 
-        // Checking option data for every button except the radio button
+        /**
+         * Checking option data for every button except the radio button
+         *
+         * @param string $id
+         * @return string
+         */
         public function pr_options_check( string $id ): string {
             $options = get_option( 'pr_settings_fields' );
 
             return ( ! empty( $options[ $id ] ) ? $options[ $id ] : '' );
         }
 
-        // Checking option data for every radio button
+        /**
+         * Checking option data for every radio button
+         *
+         * @param string $id
+         * @return string
+         */
         public function pr_option_check_radio_btn( string $id ): string {
             $options = get_option( 'pr_settings_fields' );
 
