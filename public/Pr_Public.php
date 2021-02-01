@@ -41,8 +41,6 @@ if ( ! class_exists( 'Pr_Public' ) ) {
 
         /**
          * Data sent on the front-end
-         *
-         * CHECK IF IT'S NECESSARY
          */
         public function send_data() {
             $option_data = get_option( 'pr_settings_fields' ); // Get option data
