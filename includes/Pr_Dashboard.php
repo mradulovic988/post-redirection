@@ -161,7 +161,7 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
         }
 
         public function pr_section_id_eng_page() {
-            $this->pr_settings_fields( 'url', 'pr-end-page', 'pr-end-page', 'end_page', $this->pr_options_check( 'end_page' ), 'https://domain.com/end-page' );
+            $this->pr_settings_fields( 'url', 'pr-end-page', 'pr-end-page', 'end_page', $this->pr_options_check( 'end_page' ), 'https://domain.com/end-page', '', 'required' );
         }
     }
 
