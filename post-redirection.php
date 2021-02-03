@@ -34,7 +34,7 @@ if ( !class_exists( 'Post_Redirection' ) ) {
      * Main triggering for the plugin
      *
      * @copyright  2021 M Lab Studio
-     * @license    http://www.zend.com/license/3_0.txt   PHP License 3.0
+     * @license    http://www.gnu.org/licenses/gpl-3.0.txt   GPL v3 or later
      * @version    Release: 1.0.0
      * @link       https://mlab-studio.com/
      * @since      Class available since Release 1.0.0

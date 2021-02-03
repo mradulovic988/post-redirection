@@ -16,7 +16,7 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
      * Main communication between front-end and back-end
      *
      * @copyright  2021 M Lab Studio
-     * @license    http://www.zend.com/license/3_0.txt   PHP License 3.0
+     * @license    http://www.gnu.org/licenses/gpl-3.0.txt   GPL v3 or later
      * @version    Release: 1.0.0
      * @link       https://mlab-studio.com/
      * @since      Class available since Release 1.0.0
@@ -149,7 +149,7 @@ if ( ! class_exists( 'Pr_Dashboard' ) ) {
             ), 'pr_settings_section_tab', 'pr_section_id' );
 
             // End page field
-            add_settings_field( 'pr_section_id_end_page', __( 'End page redirection', 'post_redirection' ), array(
+            add_settings_field( 'pr_section_id_end_page', __( 'End page redirection *', 'post_redirection' ), array(
                 $this,
                 'pr_section_id_eng_page'
             ), 'pr_settings_section_tab', 'pr_section_id' );
